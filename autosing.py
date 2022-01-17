@@ -22,7 +22,7 @@ def load_send():
     else:
         send=False
         print("加载通知服务失败~")
-load_send()
+
 
 def start(cookie, username):
     try:
@@ -41,7 +41,7 @@ def start(cookie, username):
         # 访问Pc主页
         user_info = s.get('https://' + flb_url + '/forum.php?mobile=no', headers=headers).text
         user_name = re.search(r'title="访问我的空间">(.*?)</a>', user_info)
-        if user_name.group(1) != username:
+        if user_name is None or (user_name.group(1) != username):
             raise Exception("【福利吧】cookie失效???????")
         # 获取签到链接,并签到
         qiandao_url = re.search(r'}function fx_checkin(.*?);', user_info).group(1)
@@ -73,6 +73,7 @@ def get_addr():
 
 
 if __name__ == '__main__':
+    load_send()
     # cookie = "此处填入COOKIE"
     # username = "此处填入用户名"
     cookie = os.getenv("FUBA")
