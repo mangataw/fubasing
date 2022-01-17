@@ -1,5 +1,10 @@
 # -*- coding: utf8 -*-
 
+"""
+cron: 30 5,12,18 * * *
+new Env('福利吧签到');
+"""
+
 import requests
 import re
 import os
