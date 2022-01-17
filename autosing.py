@@ -8,20 +8,7 @@ new Env('福利吧签到');
 import requests
 import re
 import os, sys
-
-def load_send():
-    global send
-    cur_path = os.path.abspath(os.path.dirname(__file__))
-    sys.path.append(cur_path)
-    if os.path.exists(cur_path + "/sendNotify.py"):
-        try:
-            from sendNotify import send
-        except:
-            send=False
-            print("加载通知服务失败~")
-    else:
-        send=False
-        print("加载通知服务失败~")
+from sendNotify import send
 
 
 def start(cookie, username):
@@ -73,7 +60,6 @@ def get_addr():
 
 
 if __name__ == '__main__':
-    load_send()
     # cookie = "此处填入COOKIE"
     # username = "此处填入用户名"
     cookie = os.getenv("FUBA")
