@@ -7,7 +7,7 @@ new Env('福利吧签到');
 
 import requests
 import re
-import os
+import os, sys
 
 def load_send():
     global send
