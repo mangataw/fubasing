@@ -62,7 +62,7 @@ def start(cookie, username):
 
     except Exception as e:
         print("签到失败，失败原因:"+str(e))
-        send(str(e)
+        send(str(e))
 
 
 def get_addr():
