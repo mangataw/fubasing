@@ -28,6 +28,10 @@ def start(cookie, username):
         # 访问Pc主页
         user_info = s.get('https://' + flb_url + '/forum.php?mobile=no', headers=headers).text
         user_name = re.search(r'title="访问我的空间">(.*?)</a>', user_info)
+        if user_name:
+            print("登录用户名为：" + user_name.group(1))
+        else:
+            print("未获取到用户名")
         if user_name is None or (user_name.group(1) != username):
             raise Exception("【福利吧】cookie失效???????")
         # 获取签到链接,并签到
