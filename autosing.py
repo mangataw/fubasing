@@ -30,6 +30,7 @@ def start(cookie, username):
         user_name = re.search(r'title="访问我的空间">(.*?)</a>', user_info)
         if user_name:
             print("登录用户名为：" + user_name.group(1))
+            print("环境用户名为：" + username)
         else:
             print("未获取到用户名")
         if user_name is None or (user_name.group(1) != username):
