@@ -14,8 +14,11 @@ from sendNotify import send
 def start(cookie, username):
     try:
         s = requests.session()
-
-        flb_url = get_addr()
+        temp_addr = "https://www.wnflb99.com/"
+        if s.get(temp_addr).status_code == 200:
+            flb_url = "www.wnflb99.com"
+        else:
+            flb_url = get_addr()
         headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                    'Accept - Encoding': 'gzip, deflate',
                    'Accept-Language': 'zh-CN,zh;q=0.9',
@@ -65,8 +68,8 @@ def get_addr():
 
 
 if __name__ == '__main__':
-    # cookie = "此处填入COOKIE"
-    # username = "此处填入用户名"
+    # cookie = "cookie"
+    # user_name = "username"
     cookie = os.getenv("FUBA")
     user_name = os.getenv("FUBAUN")
     start(cookie, user_name)
