@@ -14,11 +14,13 @@ from sendNotify import send
 def start(cookie, username):
     try:
         s = requests.session()
-        temp_addr = "https://www.wnflb99.com/"
-        if s.get(temp_addr).status_code == 200:
-            flb_url = "www.wnflb99.com"
-        else:
-            flb_url = get_addr()
+        # 永久地址已可正常访问
+        # temp_addr = "https://www.wnflb99.com/"
+        # if s.get(temp_addr).status_code == 200:
+            # flb_url = "www.wnflb99.com"
+        # else:
+        # 使用永久地址获取到的论坛地址
+        flb_url = get_addr()
         headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                    'Accept - Encoding': 'gzip, deflate',
                    'Accept-Language': 'zh-CN,zh;q=0.9',
