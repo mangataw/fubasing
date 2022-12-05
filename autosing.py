@@ -60,7 +60,7 @@ def start(cookie, username):
 
 
 def get_addr():
-    pub_page = "https://fuliba-1251744788.file.myqcloud.com"
+    pub_page = "http://fuliba2023-1256179406.file.myqcloud.com/"
     ret = requests.get(pub_page)
     ret.encoding = "utf-8"
     bbs_addr = re.findall(r'<a href=.*?><i>https://(.*?)</i></a>', ret.text)[1]
